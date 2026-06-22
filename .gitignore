@@ -1,0 +1,4 @@
+.csv
+.env
+nova-venv/
+__pycache__/
