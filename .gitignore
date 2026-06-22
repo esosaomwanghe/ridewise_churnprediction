@@ -2,3 +2,4 @@
 .env
 nova-venv/
 __pycache__/
+data/raw
