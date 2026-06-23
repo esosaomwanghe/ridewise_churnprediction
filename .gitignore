@@ -3,4 +3,5 @@
 nova-venv/
 __pycache__/
 data/
+output/
 
