@@ -1,5 +1,6 @@
 .csv
 .env
+venv/
 nova-venv/
 __pycache__/
 data/
