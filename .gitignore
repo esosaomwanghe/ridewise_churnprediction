@@ -1,7 +1,10 @@
 .csv
 .env
+venv/
 nova-venv/
 __pycache__/
 data/
 output/
-
+mlflow.db
+mlruns/
+models/
