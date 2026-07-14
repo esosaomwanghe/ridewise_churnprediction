@@ -30,8 +30,10 @@ if __package__ in (None, ""):
 
 from src.preprocessing import align_features, build_training_data
 
-MODELS_DIR = Path(__file__).resolve().parent.parent / "models"
+PROJECT_ROOT = Path(__file__).resolve().parent.parent
+MODELS_DIR = PROJECT_ROOT / "models"
 MODEL_PATH = MODELS_DIR / "rf_churn_model.joblib"
+MLFLOW_TRACKING_URI = f"sqlite:///{PROJECT_ROOT / 'mlflow.db'}"
 
 RF_PARAMS = dict(
     n_estimators=500,
@@ -98,7 +100,7 @@ def train_with_mlflow_tracking(test_size: float = 0.2, random_state: int = 42):
     smote = SMOTE(random_state=random_state)
     X_train_sm, y_train_sm = smote.fit_resample(X_train, y_train)
 
-    mlflow.set_tracking_uri("sqlite:///mlflow.db")
+    mlflow.set_tracking_uri(MLFLOW_TRACKING_URI)
     mlflow.set_experiment("ride-wise-project")
 
     with mlflow.start_run(run_name="logistic-regression"):
