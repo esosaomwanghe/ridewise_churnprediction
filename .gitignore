@@ -7,4 +7,3 @@ data/
 output/
 mlflow.db
 mlruns/
-models/
